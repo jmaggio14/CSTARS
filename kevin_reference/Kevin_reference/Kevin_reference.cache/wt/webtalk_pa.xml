@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+<!--The data in this file is primarily intended for consumption by Xilinx tools.
+The structure and the elements are likely to change over the next few releases.
+This means code written to parse this file will need to be revisited each subsequent release.-->
+<application name="pa" timeStamp="Tue Feb 28 19:13:50 2017">
+<section name="Project Information" visible="false">
+<property name="ProjectID" value="d41d497ddfa4403382ed1423b9ac4731" type="ProjectID"/>
+<property name="ProjectIteration" value="3" type="ProjectIteration"/>
+</section>
+<section name="PlanAhead Usage" visible="true">
+<item name="Project Data">
+<property name="SrcSetCount" value="1" type="SrcSetCount"/>
+<property name="ConstraintSetCount" value="1" type="ConstraintSetCount"/>
+<property name="DesignMode" value="RTL" type="DesignMode"/>
+<property name="SynthesisStrategy" value="Vivado Synthesis Defaults" type="SynthesisStrategy"/>
+<property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
+</item>
+<item name="Java Command Handlers">
+<property name="AddSources" value="1" type="JavaHandler"/>
+<property name="AutoConnectTarget" value="2" type="JavaHandler"/>
+<property name="CreateBlockDesign" value="2" type="JavaHandler"/>
+<property name="IPPackagerHandler" value="4" type="JavaHandler"/>
+<property name="LaunchOpenTarget" value="1" type="JavaHandler"/>
+<property name="OpenHardwareManager" value="4" type="JavaHandler"/>
+<property name="OpenProject" value="1" type="JavaHandler"/>
+<property name="OpenRecentTarget" value="2" type="JavaHandler"/>
+<property name="ProjectSettingsCmdHandler" value="1" type="JavaHandler"/>
+<property name="RunBitgen" value="1" type="JavaHandler"/>
+<property name="RunImplementation" value="2" type="JavaHandler"/>
+<property name="RunSynthesis" value="1" type="JavaHandler"/>
+<property name="SaveProjectAs" value="1" type="JavaHandler"/>
+<property name="ShowView" value="2" type="JavaHandler"/>
+<property name="SimulationRun" value="1" type="JavaHandler"/>
+<property name="ViewLayoutCmd" value="5" type="JavaHandler"/>
+<property name="ViewTaskSynthesis" value="1" type="JavaHandler"/>
+</item>
+<item name="Gui Resources Info">
+<property name="CANCEL, Cancel" value="1" type="GuiResourceData"/>
+<property name="NEXT, Next " value="2" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER, Hardware Manager" value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_OPEN_TARGET_WIZARD, Open New Target..." value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_RUN, Run Simulation" value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, Run Behavioral Simulation" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation, Run Simulation], 12, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_EDIT, Edit" value="2" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_FLOORPLANNING, Floorplanning" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_FLOW, Flow" value="6" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_IO_PLANNING, I/O Planning" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_OPEN, Open Implemented Design" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_REPORT, Report" value="2" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_TIMING, Timing" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_TOOLS, Tools" value="4" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_WINDOW, Window" value="2" type="GuiResourceData"/>
+<property name="PAResourceOtoP.OpenTargetWizard_CONNECT_TO, Local server (target is on local machine" value="1" type="GuiResourceData"/>
+<property name="PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, Open target" value="1" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_OK, OK" value="1" type="GuiResourceData"/>
+<property name="RDIResource.MainWinMenuMgr_LAYOUT, Layout" value="2" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 101, 54" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 105, 60" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 107, 43" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 176, 107" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 263, -5" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 288, 330" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 289, 329" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 650, 122, false, false, true, false, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 75, 49" value="1" type="GuiResourceData"/>
+<property name="RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 865, 80" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, addr_store[0:9]], 15, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, count[7:0], [3]], 21, false" value="4" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, count[7:0], [5]], 19, false, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, count[7:0], [6]], 18, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, count[7:0], [7]], 17, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, count[7:0]], 16" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, count[7:0]], 16, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, resetn], 0, false" value="2" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 1017, 667" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 102, 228" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 103, 99" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 130, 102" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 151, 95" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 153, 383" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 174, 110" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 178, 127" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 189, 234" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 192, 271" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 196, 281" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 197, 116" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 199, 135" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 202, 136" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 208, 136" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 208, 136, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 217, 64" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 219, 122" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 222, 136" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 234, 471" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 261, 432" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 290, 80" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 306, 381, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 330, 81" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 336, 97" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 338, 312" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 378, 232" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 398, 443" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 445, 287" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 454, 302" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 480, 274" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 626, 450" value="1" type="GuiResourceData"/>
+<property name="kmk_star_fsm.v, 659, 135" value="1" type="GuiResourceData"/>
+</item>
+<item name="Other">
+<property name="GuiMode" value="8" type="GuiMode"/>
+<property name="BatchMode" value="0" type="BatchMode"/>
+<property name="TclMode" value="1" type="TclMode"/>
+</item>
+</section>
+</application>
+</document>

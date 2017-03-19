@@ -1,0 +1,22 @@
+#-----------------------------------------------------------
+# Vivado v2016.1 (64-bit)
+# SW Build 1538259 on Fri Apr  8 15:45:23 MDT 2016
+# IP Build 1537824 on Fri Apr  8 04:28:57 MDT 2016
+# Start of session at: Wed Mar  1 10:31:57 2017
+# Process ID: 17739
+# Current directory: /home/jeffmaggio/cstars/jeffstuff/code/kevin_reference/Kevin_reference
+# Command line: vivado
+# Log file: /home/jeffmaggio/cstars/jeffstuff/code/kevin_reference/Kevin_reference/vivado.log
+# Journal file: /home/jeffmaggio/cstars/jeffstuff/code/kevin_reference/Kevin_reference/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/jeffmaggio/cstars/jeffstuff/code/kevin_reference/Kevin_reference/Kevin_reference.xpr
+Scanning sources...
+Finished scanning sources
+WARNING: [filemgmt 56-3] IP Repository Path: Could not find the directory '/home/jeffmaggio/cstars/vivado_design/create_ip'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository '/home/jeffmaggio/cstars/vivado_design/create_ip'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2016.1/data/ip'.
+open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:07 . Memory (MB): peak = 5832.688 ; gain = 109.426 ; free physical = 775 ; free virtual = 18953
+update_compile_order -fileset sources_1

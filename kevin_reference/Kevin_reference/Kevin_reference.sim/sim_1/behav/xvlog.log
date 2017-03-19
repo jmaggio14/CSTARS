@@ -1,0 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/jeffmaggio/cstars/jeffstuff/code/kevin_reference/Kevin_reference/Kevin_reference.srcs/sources_1/imports/create_ip/kmk_star_fsm.h" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/jeffmaggio/cstars/jeffstuff/code/kevin_reference/Kevin_reference/Kevin_reference.srcs/sources_1/imports/create_ip/kmk_star_fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module kmk_star_fsm
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/jeffmaggio/cstars/jeffstuff/code/kevin_reference/Kevin_reference/Kevin_reference.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

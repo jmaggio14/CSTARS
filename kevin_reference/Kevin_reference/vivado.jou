@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2016.1 (64-bit)
+# SW Build 1538259 on Fri Apr  8 15:45:23 MDT 2016
+# IP Build 1537824 on Fri Apr  8 04:28:57 MDT 2016
+# Start of session at: Wed Mar  1 10:31:57 2017
+# Process ID: 17739
+# Current directory: /home/jeffmaggio/cstars/jeffstuff/code/kevin_reference/Kevin_reference
+# Command line: vivado
+# Log file: /home/jeffmaggio/cstars/jeffstuff/code/kevin_reference/Kevin_reference/vivado.log
+# Journal file: /home/jeffmaggio/cstars/jeffstuff/code/kevin_reference/Kevin_reference/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/jeffmaggio/cstars/jeffstuff/code/kevin_reference/Kevin_reference/Kevin_reference.xpr
+update_compile_order -fileset sources_1

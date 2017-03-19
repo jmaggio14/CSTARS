@@ -1,0 +1,332 @@
+#-----------------------------------------------------------
+# Vivado v2016.1 (64-bit)
+# SW Build 1538259 on Fri Apr  8 15:45:23 MDT 2016
+# IP Build 1537824 on Fri Apr  8 04:28:57 MDT 2016
+# Start of session at: Thu Feb 23 15:29:26 2017
+# Process ID: 4372
+# Current directory: /home/jeffmaggio/cstars/jeffstuff/code/verilog
+# Command line: vivado
+# Log file: /home/jeffmaggio/cstars/jeffstuff/code/verilog/vivado.log
+# Journal file: /home/jeffmaggio/cstars/jeffstuff/code/verilog/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/jeffmaggio/project_1/project_1.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2016.1/data/ip'.
+open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:12 . Memory (MB): peak = 5882.051 ; gain = 151.707 ; free physical = 4328 ; free virtual = 22021
+update_compile_order -fileset sources_1
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7z020clg484-1
+INFO: [Netlist 29-17] Analyzing 53 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2016.1
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/jeffmaggio/project_1/project_1.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc] for cell 'design_1_i/processing_system7_0/inst'
+Finished Parsing XDC File [/home/jeffmaggio/project_1/project_1.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc] for cell 'design_1_i/processing_system7_0/inst'
+Parsing XDC File [/home/jeffmaggio/project_1/project_1.srcs/sources_1/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0_board.xdc] for cell 'design_1_i/axi_gpio_0/U0'
+Finished Parsing XDC File [/home/jeffmaggio/project_1/project_1.srcs/sources_1/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0_board.xdc] for cell 'design_1_i/axi_gpio_0/U0'
+Parsing XDC File [/home/jeffmaggio/project_1/project_1.srcs/sources_1/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0.xdc] for cell 'design_1_i/axi_gpio_0/U0'
+Finished Parsing XDC File [/home/jeffmaggio/project_1/project_1.srcs/sources_1/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0.xdc] for cell 'design_1_i/axi_gpio_0/U0'
+Parsing XDC File [/home/jeffmaggio/project_1/project_1.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_50M_0/design_1_rst_processing_system7_0_50M_0_board.xdc] for cell 'design_1_i/rst_processing_system7_0_50M/U0'
+Finished Parsing XDC File [/home/jeffmaggio/project_1/project_1.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_50M_0/design_1_rst_processing_system7_0_50M_0_board.xdc] for cell 'design_1_i/rst_processing_system7_0_50M/U0'
+Parsing XDC File [/home/jeffmaggio/project_1/project_1.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_50M_0/design_1_rst_processing_system7_0_50M_0.xdc] for cell 'design_1_i/rst_processing_system7_0_50M/U0'
+Finished Parsing XDC File [/home/jeffmaggio/project_1/project_1.srcs/sources_1/bd/design_1/ip/design_1_rst_processing_system7_0_50M_0/design_1_rst_processing_system7_0_50M_0.xdc] for cell 'design_1_i/rst_processing_system7_0_50M/U0'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Generating merged BMM file for the design top 'design_1_wrapper'...
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:23 ; elapsed = 00:00:19 . Memory (MB): peak = 6345.133 ; gain = 456.078 ; free physical = 3914 ; free virtual = 21662
+launch_sdk -workspace /home/jeffmaggio/project_1/project_1.sdk -hwspec /home/jeffmaggio/project_1/project_1.sdk/design_1_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace /home/jeffmaggio/project_1/project_1.sdk -hwspec /home/jeffmaggio/project_1/project_1.sdk/design_1_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+launch_simulation -mode post-implementation -type timing
+Generating merged BMM file for the design top 'design_1_wrapper'...
+INFO: [USF-XSim-27] Simulation object is 'sim_1'
+INFO: [Netlist 29-17] Analyzing 51 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2016.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/jeffmaggio/cstars/jeffstuff/code/verilog/.Xil/Vivado-4372-nikha/dcp/design_1_wrapper_early.xdc]
+Finished Parsing XDC File [/home/jeffmaggio/cstars/jeffstuff/code/verilog/.Xil/Vivado-4372-nikha/dcp/design_1_wrapper_early.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00.52 ; elapsed = 00:00:00.52 . Memory (MB): peak = 6728.680 ; gain = 0.000 ; free physical = 3237 ; free virtual = 21111
+Restored from archive | CPU: 0.530000 secs | Memory: 3.072922 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.52 ; elapsed = 00:00:00.52 . Memory (MB): peak = 6728.680 ; gain = 0.000 ; free physical = 3237 ; free virtual = 21111
+Generating merged BMM file for the design top 'design_1_wrapper'...
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:11 ; elapsed = 00:00:06 . Memory (MB): peak = 6793.656 ; gain = 147.195 ; free physical = 3185 ; free virtual = 21051
+INFO: [USF-XSim-32] Writing simulation netlist file for design 'impl_1'...
+INFO: [USF-XSim-92] write_verilog -mode timesim -nolib -sdf_anno true -force -file "/home/jeffmaggio/project_1/project_1.sim/sim_1/impl/timing/design_1_wrapper_time_impl.v"
+INFO: [USF-XSim-33] Writing SDF file...
+INFO: [USF-XSim-93] write_sdf -mode timesim -process_corner slow -force -file "/home/jeffmaggio/project_1/project_1.sim/sim_1/impl/timing/design_1_wrapper_time_impl.sdf"
+INFO: [USF-XSim-34] Netlist generated:/home/jeffmaggio/project_1/project_1.sim/sim_1/impl/timing/design_1_wrapper_time_impl.v
+INFO: [USF-XSim-35] SDF generated:/home/jeffmaggio/project_1/project_1.sim/sim_1/impl/timing/design_1_wrapper_time_impl.sdf
+INFO: [USF-XSim-96] Design contains embedded sources, generating MEM files for simulation...
+Generating merged BMM file for the design top 'design_1_wrapper'...
+INFO: [USF-XSim-37] Inspecting design source files for 'design_1_wrapper' in fileset 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/jeffmaggio/project_1/project_1.sim/sim_1/impl/timing'
+xvlog -m64 --relax -prj design_1_wrapper_vlog.prj
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/jeffmaggio/project_1/project_1.sim/sim_1/impl/timing/design_1_wrapper_time_impl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module GPIO_Core
+INFO: [VRFC 10-311] analyzing module SRL_FIFO
+INFO: [VRFC 10-311] analyzing module address_decoder
+INFO: [VRFC 10-311] analyzing module axi_bram_ctrl
+INFO: [VRFC 10-311] analyzing module axi_bram_ctrl_top
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_9_addr_arbiter
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_9_addr_arbiter_4
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_9_arbiter_resp
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_9_arbiter_resp_6
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_9_axi_crossbar
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_9_crossbar
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_9_decerr_slave
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_9_si_transactor
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_9_si_transactor__parameterized0
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_9_splitter
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_9_splitter_5
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_9_wdata_router
+INFO: [VRFC 10-311] analyzing module axi_data_fifo_v2_1_7_axic_reg_srl_fifo
+INFO: [VRFC 10-311] analyzing module axi_data_fifo_v2_1_7_ndeep_srl__parameterized0
+INFO: [VRFC 10-311] analyzing module axi_data_fifo_v2_1_7_ndeep_srl__parameterized1
+INFO: [VRFC 10-311] analyzing module axi_gpio
+INFO: [VRFC 10-311] analyzing module axi_lite_ipif
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_axi_protocol_converter
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_b2s
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_b2s_ar_channel
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_b2s_aw_channel
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_b2s_b_channel
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_b2s_cmd_translator
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_b2s_cmd_translator_1
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_b2s_incr_cmd
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_b2s_incr_cmd_2
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_b2s_r_channel
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_b2s_rd_cmd_fsm
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_b2s_simple_fifo
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_b2s_simple_fifo__parameterized0
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_b2s_simple_fifo__parameterized1
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_b2s_simple_fifo__parameterized2
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_b2s_wr_cmd_fsm
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_b2s_wrap_cmd
+INFO: [VRFC 10-311] analyzing module axi_protocol_converter_v2_1_8_b2s_wrap_cmd_3
+INFO: [VRFC 10-311] analyzing module axi_register_slice_v2_1_8_axi_register_slice
+INFO: [VRFC 10-311] analyzing module axi_register_slice_v2_1_8_axi_register_slice__parameterized1
+INFO: [VRFC 10-311] analyzing module axi_register_slice_v2_1_8_axi_register_slice__parameterized2
+INFO: [VRFC 10-311] analyzing module axi_register_slice_v2_1_8_axi_register_slice__parameterized3
+INFO: [VRFC 10-311] analyzing module axi_register_slice_v2_1_8_axic_register_slice
+INFO: [VRFC 10-311] analyzing module axi_register_slice_v2_1_8_axic_register_slice_0
+INFO: [VRFC 10-311] analyzing module axi_register_slice_v2_1_8_axic_register_slice__parameterized1
+INFO: [VRFC 10-311] analyzing module axi_register_slice_v2_1_8_axic_register_slice__parameterized10
+INFO: [VRFC 10-311] analyzing module axi_register_slice_v2_1_8_axic_register_slice__parameterized12
+INFO: [VRFC 10-311] analyzing module axi_register_slice_v2_1_8_axic_register_slice__parameterized15
+INFO: [VRFC 10-311] analyzing module axi_register_slice_v2_1_8_axic_register_slice__parameterized17
+INFO: [VRFC 10-311] analyzing module axi_register_slice_v2_1_8_axic_register_slice__parameterized2
+INFO: [VRFC 10-311] analyzing module axi_register_slice_v2_1_8_axic_register_slice__parameterized20
+INFO: [VRFC 10-311] analyzing module axi_register_slice_v2_1_8_axic_register_slice__parameterized22
+INFO: [VRFC 10-311] analyzing module cdc_sync__parameterized0
+INFO: [VRFC 10-311] analyzing module design_1
+INFO: [VRFC 10-311] analyzing module design_1_auto_pc_0
+INFO: [VRFC 10-311] analyzing module design_1_auto_pc_1
+INFO: [VRFC 10-311] analyzing module design_1_axi_bram_ctrl_0_0
+INFO: [VRFC 10-311] analyzing module design_1_axi_gpio_0_0
+INFO: [VRFC 10-311] analyzing module design_1_blk_mem_gen_0_0
+INFO: [VRFC 10-311] analyzing module design_1_processing_system7_0_0
+INFO: [VRFC 10-311] analyzing module design_1_processing_system7_0_axi_periph_0
+INFO: [VRFC 10-311] analyzing module design_1_rst_processing_system7_0_50M_0
+INFO: [VRFC 10-311] analyzing module design_1_wrapper
+INFO: [VRFC 10-311] analyzing module design_1_xbar_0
+INFO: [VRFC 10-311] analyzing module full_axi
+INFO: [VRFC 10-311] analyzing module lpf
+INFO: [VRFC 10-311] analyzing module m00_couplers_imp_OBU1DD
+INFO: [VRFC 10-311] analyzing module proc_sys_reset
+INFO: [VRFC 10-311] analyzing module processing_system7_v5_5_processing_system7
+INFO: [VRFC 10-311] analyzing module rd_chnl
+INFO: [VRFC 10-311] analyzing module s00_couplers_imp_1CFO1MB
+INFO: [VRFC 10-311] analyzing module sequence_psr
+INFO: [VRFC 10-311] analyzing module slave_attachment
+INFO: [VRFC 10-311] analyzing module upcnt_n
+INFO: [VRFC 10-311] analyzing module wr_chnl
+INFO: [VRFC 10-311] analyzing module wrap_brst
+INFO: [VRFC 10-311] analyzing module wrap_brst_7
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_generic_cstr
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_prim_width
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_prim_width__parameterized0
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_prim_wrapper
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_prim_wrapper__parameterized0
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_top
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_v8_3_2
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_v8_3_2_synth
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/jeffmaggio/project_1/project_1.sim/sim_1/impl/timing'
+Vivado Simulator 2016.1
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.1/bin/unwrapped/lnx64.o/xelab -wto c8ab1aaa48e04db6bb2a8f2f49f24cff --debug typical --relax --mt 8 --maxdelay -L xil_defaultlib -L simprims_ver -L secureip --snapshot design_1_wrapper_time_impl -transport_int_delays -pulse_r 0 -pulse_int_r 0 xil_defaultlib.design_1_wrapper xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+INFO: [XSIM 43-3451] SDF backannotation process started with SDF file "design_1_wrapper_time_impl.sdf", for root module "design_1_wrapper".
+INFO: [XSIM 43-3452] SDF backannotation was successful for SDF file "design_1_wrapper_time_impl.sdf", for root module "design_1_wrapper".
+Time Resolution for simulation is 1ps
+Compiling module simprims_ver.PULLUP
+Compiling module simprims_ver.GND
+Compiling module simprims_ver.LUT4
+Compiling module simprims_ver.LUT6
+Compiling module simprims_ver.LUT5
+Compiling module simprims_ver.x_lut2_mux4
+Compiling module simprims_ver.LUT2
+Compiling module simprims_ver.sffsrce_fdre
+Compiling module simprims_ver.FDRE
+Compiling module simprims_ver.x_lut3_mux4
+Compiling module simprims_ver.x_lut3_mux4_reduced_0
+Compiling module simprims_ver.LUT3
+Compiling module simprims_ver.x_lut1_mux2
+Compiling module simprims_ver.LUT1
+Compiling module xil_defaultlib.wrap_brst_7
+Compiling module xil_defaultlib.rd_chnl
+Compiling module simprims_ver.CARRY4
+Compiling module simprims_ver.SRL16E
+Compiling module xil_defaultlib.SRL_FIFO
+Compiling module xil_defaultlib.wrap_brst
+Compiling module xil_defaultlib.wr_chnl
+Compiling module xil_defaultlib.full_axi
+Compiling module xil_defaultlib.axi_bram_ctrl_top
+Compiling module xil_defaultlib.axi_bram_ctrl
+Compiling module xil_defaultlib.design_1_axi_bram_ctrl_0_0
+Compiling module xil_defaultlib.address_decoder
+Compiling module xil_defaultlib.slave_attachment
+Compiling module xil_defaultlib.axi_lite_ipif
+Compiling module simprims_ver.sffsrce_fdse
+Compiling module simprims_ver.FDSE
+Compiling module xil_defaultlib.GPIO_Core
+Compiling module xil_defaultlib.axi_gpio
+Compiling module xil_defaultlib.design_1_axi_gpio_0_0
+Compiling module simprims_ver.RB36_INTERNAL_VLOG(DOA_REG=0,DOB...
+Compiling module simprims_ver.RAMB36E1(IS_RSTRAMARSTRAM_INVERT...
+Compiling module xil_defaultlib.blk_mem_gen_prim_wrapper
+Compiling module xil_defaultlib.blk_mem_gen_prim_width
+Compiling module xil_defaultlib.blk_mem_gen_prim_wrapper__parame...
+Compiling module xil_defaultlib.blk_mem_gen_prim_width__paramete...
+Compiling module xil_defaultlib.blk_mem_gen_generic_cstr
+Compiling module xil_defaultlib.blk_mem_gen_top
+Compiling module xil_defaultlib.blk_mem_gen_v8_3_2_synth
+Compiling module xil_defaultlib.blk_mem_gen_v8_3_2
+Compiling module xil_defaultlib.design_1_blk_mem_gen_0_0
+Compiling module simprims_ver.BIBUF
+Compiling module simprims_ver.PS7
+Compiling module simprims_ver.BUFG
+Compiling module xil_defaultlib.processing_system7_v5_5_processi...
+Compiling module xil_defaultlib.design_1_processing_system7_0_0
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_b2...
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_b2...
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_b2...
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_b2...
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_b2...
+Compiling module simprims_ver.SRLC32E
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_b2...
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_b2...
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_b2...
+Compiling module simprims_ver.FDRE(INIT=1'b1)
+Compiling module xil_defaultlib.axi_register_slice_v2_1_8_axic_r...
+Compiling module xil_defaultlib.axi_register_slice_v2_1_8_axic_r...
+Compiling module xil_defaultlib.axi_register_slice_v2_1_8_axic_r...
+Compiling module xil_defaultlib.axi_register_slice_v2_1_8_axic_r...
+Compiling module xil_defaultlib.axi_register_slice_v2_1_8_axi_re...
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_b2...
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_b2...
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_b2...
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_b2...
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_b2...
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_b2...
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_b2...
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_b2...
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_b2...
+Compiling module xil_defaultlib.axi_protocol_converter_v2_1_8_ax...
+Compiling module xil_defaultlib.design_1_auto_pc_0
+Compiling module xil_defaultlib.m00_couplers_imp_OBU1DD
+Compiling module xil_defaultlib.design_1_auto_pc_1
+Compiling module xil_defaultlib.s00_couplers_imp_1CFO1MB
+Compiling module xil_defaultlib.axi_crossbar_v2_1_9_addr_arbiter
+Compiling module xil_defaultlib.axi_crossbar_v2_1_9_addr_arbiter...
+Compiling module xil_defaultlib.axi_crossbar_v2_1_9_decerr_slave
+Compiling module xil_defaultlib.axi_register_slice_v2_1_8_axic_r...
+Compiling module xil_defaultlib.axi_register_slice_v2_1_8_axic_r...
+Compiling module xil_defaultlib.axi_register_slice_v2_1_8_axi_re...
+Compiling module xil_defaultlib.axi_register_slice_v2_1_8_axic_r...
+Compiling module xil_defaultlib.axi_register_slice_v2_1_8_axic_r...
+Compiling module xil_defaultlib.axi_register_slice_v2_1_8_axi_re...
+Compiling module xil_defaultlib.axi_register_slice_v2_1_8_axic_r...
+Compiling module xil_defaultlib.axi_register_slice_v2_1_8_axic_r...
+Compiling module xil_defaultlib.axi_register_slice_v2_1_8_axi_re...
+Compiling module xil_defaultlib.axi_crossbar_v2_1_9_arbiter_resp...
+Compiling module xil_defaultlib.axi_crossbar_v2_1_9_si_transacto...
+Compiling module xil_defaultlib.axi_crossbar_v2_1_9_arbiter_resp
+Compiling module xil_defaultlib.axi_crossbar_v2_1_9_si_transacto...
+Compiling module xil_defaultlib.axi_crossbar_v2_1_9_splitter
+Compiling module xil_defaultlib.axi_data_fifo_v2_1_7_ndeep_srl__...
+Compiling module xil_defaultlib.axi_data_fifo_v2_1_7_ndeep_srl__...
+Compiling module xil_defaultlib.axi_data_fifo_v2_1_7_axic_reg_sr...
+Compiling module xil_defaultlib.axi_crossbar_v2_1_9_wdata_router
+Compiling module xil_defaultlib.axi_crossbar_v2_1_9_splitter_5
+Compiling module xil_defaultlib.axi_crossbar_v2_1_9_crossbar
+Compiling module xil_defaultlib.axi_crossbar_v2_1_9_axi_crossbar
+Compiling module xil_defaultlib.design_1_xbar_0
+Compiling module xil_defaultlib.design_1_processing_system7_0_ax...
+Compiling module simprims_ver.FDRE(XON="FALSE")
+Compiling module xil_defaultlib.cdc_sync__parameterized0
+Compiling module xil_defaultlib.lpf
+Compiling module simprims_ver.FDSE(INIT=1'b0)
+Compiling module xil_defaultlib.upcnt_n
+Compiling module xil_defaultlib.sequence_psr
+Compiling module xil_defaultlib.proc_sys_reset
+Compiling module xil_defaultlib.design_1_rst_processing_system7_...
+Compiling module xil_defaultlib.design_1
+Compiling module simprims_ver.OBUF
+Compiling module xil_defaultlib.design_1_wrapper
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot design_1_wrapper_time_impl
+
+****** Webtalk v2016.1 (64-bit)
+  **** SW Build 1538259 on Fri Apr  8 15:45:23 MDT 2016
+  **** IP Build 1537824 on Fri Apr  8 04:28:57 MDT 2016
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/jeffmaggio/project_1/project_1.sim/sim_1/impl/timing/xsim.dir/design_1_wrapper_time_impl/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Thu Feb 23 15:53:09 2017...
+run_program: Time (s): cpu = 00:05:21 ; elapsed = 00:02:57 . Memory (MB): peak = 6793.660 ; gain = 0.000 ; free physical = 2922 ; free virtual = 20970
+INFO: [USF-XSim-69] 'elaborate' step finished in '177' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/jeffmaggio/project_1/project_1.sim/sim_1/impl/timing'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "design_1_wrapper_time_impl -key {Post-Implementation:sim_1:Timing:design_1_wrapper} -tclbatch {design_1_wrapper.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.1
+Time resolution is 1 ps
+source design_1_wrapper.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Warning on instance design_1_wrapper.design_1_i.processing_system7_0.inst.PS7_i : The Zynq-7000 All Programmable SoC does not have a simulation model. Behavioral simulation of Zynq-7000 (e.g. Zynq PS7 block) is not supported in any simulator. Please use the AXI BFM simulation model to verify the AXI transactions.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'design_1_wrapper_time_impl' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:05:42 ; elapsed = 00:03:12 . Memory (MB): peak = 6843.141 ; gain = 196.680 ; free physical = 2747 ; free virtual = 20818

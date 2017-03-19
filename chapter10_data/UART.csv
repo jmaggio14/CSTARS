@@ -1,0 +1,23 @@
+
+=-=-= Message Totals by Channel and Type =-=-=
+
+ChanID   0 : RESERVED : SYSTEM
+    TMATS                      1
+
+ChanID   1 : TIMEIN : TimeChannel
+    IRIG Time                  1
+
+ChanID  16 : 429IN : Arinc429Channel
+    ARINC 429  Subchan   0  Label  11    Msgs          3
+    ARINC 429  Subchan   1  Label  13    Msgs          1
+    ARINC 429  Subchan   1  Label  17    Msgs          1
+
+=-=-= File Time Summary =-=-=
+
+File Start 01/01/2015 00:00:00
+Data Start 01/01/2015 00:00:00
+Data Stop  11/20/2015 13:18:03
+
+
+TOTAL RECORDS:             3
+

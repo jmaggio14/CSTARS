@@ -1,0 +1,315 @@
+
+*** Running vivado
+    with args -log kmk_star_fsm.vds -m64 -mode batch -messageDb vivado.pb -notrace -source kmk_star_fsm.tcl
+
+
+****** Vivado v2016.1 (64-bit)
+  **** SW Build 1538259 on Fri Apr  8 15:45:23 MDT 2016
+  **** IP Build 1537824 on Fri Apr  8 04:28:57 MDT 2016
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source kmk_star_fsm.tcl -notrace
+Command: synth_design -top kmk_star_fsm -part xc7z010clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 2956 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1014.938 ; gain = 128.078 ; free physical = 152 ; free virtual = 18948
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'kmk_star_fsm' [/home/jeffmaggio/cstars/jeffstuff/code/kevin_reference/Kevin_reference/Kevin_reference.srcs/sources_1/imports/create_ip/kmk_star_fsm.v:1]
+INFO: [Synth 8-256] done synthesizing module 'kmk_star_fsm' (1#1) [/home/jeffmaggio/cstars/jeffstuff/code/kevin_reference/Kevin_reference/Kevin_reference.srcs/sources_1/imports/create_ip/kmk_star_fsm.v:1]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1054.375 ; gain = 167.516 ; free physical = 127 ; free virtual = 18904
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1054.375 ; gain = 167.516 ; free physical = 127 ; free virtual = 18903
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z010clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1062.379 ; gain = 175.520 ; free physical = 127 ; free virtual = 18903
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'kmk_star_fsm'
+INFO: [Synth 8-5546] ROM "addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "addr_store" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "clk_x" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "ld_x" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ld_y" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                            00000 |                         00000000
+                 iSTATE0 |                            00001 |                         00000001
+                 iSTATE1 |                            00010 |                         00000010
+                 iSTATE2 |                            00011 |                         00000011
+                 iSTATE3 |                            00100 |                         00000100
+                 iSTATE4 |                            00101 |                         00000101
+                 iSTATE5 |                            00110 |                         00000110
+                 iSTATE6 |                            00111 |                         00000111
+                 iSTATE7 |                            01000 |                         00001000
+                 iSTATE8 |                            01001 |                         00001001
+                 iSTATE9 |                            01010 |                         00001010
+                iSTATE10 |                            01011 |                         00001011
+                iSTATE11 |                            01100 |                         00001100
+                iSTATE12 |                            01101 |                         00001101
+                iSTATE13 |                            01110 |                         00001110
+                iSTATE14 |                            01111 |                         00001111
+                iSTATE15 |                            10000 |                         00010000
+                iSTATE16 |                            10001 |                         00010001
+                iSTATE17 |                            10010 |                         00010010
+                iSTATE18 |                            10011 |                         00010011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'kmk_star_fsm'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1078.395 ; gain = 191.535 ; free physical = 137 ; free virtual = 18893
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 2     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 2     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 9     
++---Muxes : 
+	  20 Input     10 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 4     
+	  20 Input      8 Bit        Muxes := 2     
+	  21 Input      5 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
+	  20 Input      1 Bit        Muxes := 18    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module kmk_star_fsm 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 2     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 2     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 9     
++---Muxes : 
+	  20 Input     10 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 4     
+	  20 Input      8 Bit        Muxes := 2     
+	  21 Input      5 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
+	  20 Input      1 Bit        Muxes := 18    
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 80 (col length:40)
+BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1144.715 ; gain = 257.855 ; free physical = 125 ; free virtual = 18823
+---------------------------------------------------------------------------------
+Start Cross Boundary Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1168.738 ; gain = 281.879 ; free physical = 122 ; free virtual = 18803
+---------------------------------------------------------------------------------
+Finished Parallel Reinference  : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1168.738 ; gain = 281.879 ; free physical = 122 ; free virtual = 18803
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++-------------+------------+---------------+----------------+
+|Module Name  | RTL Object | Depth x Width | Implemented As | 
++-------------+------------+---------------+----------------+
+|kmk_star_fsm | p_1_out    | 32x5          | LUT            | 
++-------------+------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (zybo2_fs_reg)
+WARNING: [Synth 8-3332] Sequential element (zybo2_fs_reg) is unused and will be removed from module kmk_star_fsm.
+---------------------------------------------------------------------------------
+Finished Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1168.738 ; gain = 281.879 ; free physical = 120 ; free virtual = 18803
+---------------------------------------------------------------------------------
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1168.738 ; gain = 281.879 ; free physical = 120 ; free virtual = 18803
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1168.738 ; gain = 281.879 ; free physical = 120 ; free virtual = 18803
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1168.738 ; gain = 281.879 ; free physical = 120 ; free virtual = 18803
+---------------------------------------------------------------------------------
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1168.738 ; gain = 281.879 ; free physical = 120 ; free virtual = 18803
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1168.738 ; gain = 281.879 ; free physical = 120 ; free virtual = 18803
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1168.738 ; gain = 281.879 ; free physical = 119 ; free virtual = 18802
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1168.738 ; gain = 281.879 ; free physical = 119 ; free virtual = 18802
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1168.738 ; gain = 281.879 ; free physical = 119 ; free virtual = 18802
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1168.738 ; gain = 281.879 ; free physical = 119 ; free virtual = 18802
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1168.738 ; gain = 281.879 ; free physical = 119 ; free virtual = 18802
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1168.738 ; gain = 281.879 ; free physical = 119 ; free virtual = 18802
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |BUFG |     1|
+|2     |LUT1 |     2|
+|3     |LUT2 |    13|
+|4     |LUT3 |     8|
+|5     |LUT4 |    15|
+|6     |LUT5 |    32|
+|7     |LUT6 |    21|
+|8     |FDRE |    41|
+|9     |IBUF |     3|
+|10    |OBUF |    20|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |   156|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1168.738 ; gain = 281.879 ; free physical = 119 ; free virtual = 18802
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1168.738 ; gain = 194.797 ; free physical = 119 ; free virtual = 18802
+Synthesis Optimization Complete : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1168.746 ; gain = 281.887 ; free physical = 119 ; free virtual = 18802
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+20 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1329.570 ; gain = 368.215 ; free physical = 133 ; free virtual = 18727
+report_utilization: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.54 . Memory (MB): peak = 1361.586 ; gain = 0.000 ; free physical = 129 ; free virtual = 18725
+INFO: [Common 17-206] Exiting Vivado at Tue Feb 28 11:56:42 2017...

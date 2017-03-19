@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1488301446">
+  <File Type="ROUTE-STATUS-PB" Name="kmk_star_fsm_route_status.pb"/>
+  <File Type="ROUTE-STATUS" Name="kmk_star_fsm_route_status.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="kmk_star_fsm_power_routed.rpx"/>
+  <File Type="ROUTE-PWR-SUM" Name="kmk_star_fsm_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="kmk_star_fsm_power_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="kmk_star_fsm_drc_routed.pb"/>
+  <File Type="ROUTE-DRC" Name="kmk_star_fsm_drc_routed.rpt"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="kmk_star_fsm_routed_bb.dcp"/>
+  <File Type="ROUTE-DCP" Name="kmk_star_fsm_routed.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="kmk_star_fsm_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="kmk_star_fsm_physopt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="kmk_star_fsm_postplace_pwropt.dcp"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="kmk_star_fsm_methodology_drc_routed.pb"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="kmk_star_fsm_incremental_reuse_pre_placed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="kmk_star_fsm_methodology_drc_routed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="kmk_star_fsm_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-CTRL" Name="kmk_star_fsm_control_sets_placed.rpt"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="kmk_star_fsm_methodology_drc_opted.rpt"/>
+  <File Type="PA-DCP" Name="kmk_star_fsm.dcp"/>
+  <File Type="OPT-DCP" Name="kmk_star_fsm_opt.dcp"/>
+  <File Type="INIT-TIMING" Name="kmk_star_fsm_timing_summary_init.rpt"/>
+  <File Type="PLACE-TIMING" Name="kmk_star_fsm_timing_summary_placed.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="kmk_star_fsm_timing_summary_postroute_physopted.rpt"/>
+  <File Type="BG-BIT" Name="kmk_star_fsm.bit"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="kmk_star_fsm_timing_summary_routed.rpt"/>
+  <File Type="BG-BIN" Name="kmk_star_fsm.bin"/>
+  <File Type="ROUTE-SIMILARITY" Name="kmk_star_fsm_incremental_reuse_routed.rpt"/>
+  <File Type="BITSTR-MSK" Name="kmk_star_fsm.msk"/>
+  <File Type="ROUTE-CLK" Name="kmk_star_fsm_clock_utilization_routed.rpt"/>
+  <File Type="BITSTR-RBT" Name="kmk_star_fsm.rbt"/>
+  <File Type="BITSTR-NKY" Name="kmk_star_fsm.nky"/>
+  <File Type="PLACE-DCP" Name="kmk_star_fsm_placed.dcp"/>
+  <File Type="BITSTR-BMM" Name="kmk_star_fsm_bd.bmm"/>
+  <File Type="PWROPT-DCP" Name="kmk_star_fsm_pwropt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="kmk_star_fsm_postroute_physopt_bb.dcp"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="RDI-RDI" Name="kmk_star_fsm.vdi"/>
+  <File Type="PWROPT-TIMING" Name="kmk_star_fsm_timing_summary_pwropted.rpt"/>
+  <File Type="OPT-DRC" Name="kmk_star_fsm_drc_opted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="kmk_star_fsm_timing_summary_postroute_physopted.pb"/>
+  <File Type="BG-DRC" Name="kmk_star_fsm.drc"/>
+  <File Type="ROUTE-TIMING-PB" Name="kmk_star_fsm_timing_summary_routed.pb"/>
+  <File Type="BITSTR-MMI" Name="kmk_star_fsm.mmi"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="kmk_star_fsm_timing_summary_postroute_physopted.rpx"/>
+  <File Type="BG-BGN" Name="kmk_star_fsm.bgn"/>
+  <File Type="ROUTE-TIMING-RPX" Name="kmk_star_fsm_timing_summary_routed.rpx"/>
+  <File Type="BITSTR-SYSDEF" Name="kmk_star_fsm.sysdef"/>
+  <File Type="PWROPT-DRC" Name="kmk_star_fsm_drc_pwropted.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="kmk_star_fsm_utilization_placed.pb"/>
+  <File Type="PLACE-UTIL" Name="kmk_star_fsm_utilization_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="kmk_star_fsm_clock_utilization_placed.rpt"/>
+  <File Type="PHYSOPT-TIMING" Name="kmk_star_fsm_timing_summary_physopted.rpt"/>
+  <File Type="PA-TCL" Name="kmk_star_fsm.tcl"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="kmk_star_fsm_postroute_physopt.dcp"/>
+  <File Type="PLACE-IO" Name="kmk_star_fsm_io_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="kmk_star_fsm_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="OPT-TIMING" Name="kmk_star_fsm_timing_summary_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="kmk_star_fsm.hwdef"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/create_ip/kmk_star_fsm.h">
+      <FileInfo>
+        <Attr Name="IsGlobalInclude" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../vivado_design/create_ip/kmk_star_fsm.h"/>
+        <Attr Name="ImportTime" Val="1479400102"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/create_ip/kmk_star_fsm.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../vivado_design/create_ip/kmk_star_fsm.v"/>
+        <Attr Name="ImportTime" Val="1480374261"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/create_ip/component.xml">
+      <FileInfo SFType="IPXACT">
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../vivado_design/create_ip/component.xml"/>
+        <Attr Name="ImportTime" Val="1480374338"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="kmk_star_fsm"/>
+      <Option Name="TopRTLFile" Val="$PSRCDIR/sources_1/imports/create_ip/kmk_star_fsm.v"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>

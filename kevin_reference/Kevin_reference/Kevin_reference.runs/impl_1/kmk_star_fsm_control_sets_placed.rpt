@@ -1,0 +1,64 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.1 (lin64) Build 1538259 Fri Apr  8 15:45:23 MDT 2016
+| Date         : Tue Feb 28 12:04:31 2017
+| Host         : nikha running 64-bit Ubuntu 16.04.1 LTS
+| Command      : report_control_sets -verbose -file kmk_star_fsm_control_sets_placed.rpt
+| Design       : kmk_star_fsm
+| Device       : xc7z010
+-----------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    11 |
+| Unused register locations in slices containing registers |    63 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               2 |            2 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |              13 |            7 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              26 |           12 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++----------------+---------------------------------+------------------+------------------+----------------+
+|  Clock Signal  |          Enable Signal          | Set/Reset Signal | Slice Load Count | Bel Load Count |
++----------------+---------------------------------+------------------+------------------+----------------+
+|  clk_IBUF_BUFG | s_i_1_n_0                       | clear            |                1 |              1 |
+|  clk_IBUF_BUFG | rst_y_i_1_n_0                   | clear            |                1 |              1 |
+|  clk_IBUF_BUFG | r_i_1_n_0                       | clear            |                1 |              1 |
+|  clk_IBUF_BUFG | ld_y_i_1_n_0                    | clear            |                1 |              1 |
+|  clk_IBUF_BUFG | ld_x_i_1_n_0                    | clear            |                1 |              1 |
+|  clk_IBUF_BUFG | cal_i_1_n_0                     | clear            |                1 |              1 |
+|  clk_IBUF_BUFG |                                 |                  |                2 |              2 |
+|  clk_IBUF_BUFG | FSM_sequential_state[4]_i_1_n_0 |                  |                3 |              5 |
+|  clk_IBUF_BUFG | count[7]_i_1_n_0                |                  |                4 |              8 |
+|  clk_IBUF_BUFG | addr_store                      | clear            |                2 |             10 |
+|  clk_IBUF_BUFG | addr[0]_i_2_n_0                 | clear            |                4 |             10 |
++----------------+---------------------------------+------------------+------------------+----------------+
+
+

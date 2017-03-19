@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2016.1 (64-bit)
+# SW Build 1538259 on Fri Apr  8 15:45:23 MDT 2016
+# IP Build 1537824 on Fri Apr  8 04:28:57 MDT 2016
+# Start of session at: Wed Mar  1 10:30:21 2017
+# Process ID: 17598
+# Current directory: /home/jeffmaggio/cstars/jeffstuff/code/kevin_reference/Kevin_reference
+# Command line: vivado
+# Log file: /home/jeffmaggio/cstars/jeffstuff/code/kevin_reference/Kevin_reference/vivado.log
+# Journal file: /home/jeffmaggio/cstars/jeffstuff/code/kevin_reference/Kevin_reference/vivado.jou
+#-----------------------------------------------------------
+start_gui
+ERROR: [Common 17-1374] Display test failed. Please check DISPLAY environment variable and X server permissions for remote display.
