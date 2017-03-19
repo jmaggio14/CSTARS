@@ -188,13 +188,13 @@ int decodeCstarsPacket(struct SuPacketParameters *psuPacketParam, struct SuPersi
   struct SuI106Ch10Header *psuHeader = psuPacketParam->suHeader;//packet
 
   //----------------DETERMINING SIZE OF HEADER----------------
-	//determining whether secondary header exists
-	if ((packet->ubyPacketFlags & I106CH10_PFLAGS_SEC_HEADER) != 0){
-		psuPacketParam->iHeaderLength = HEADER_SIZE + SEC_HEADER_SIZE;
+  //determining whether secondary header exists
+  if ((packet->ubyPacketFlags & I106CH10_PFLAGS_SEC_HEADER) != 0){
+    psuPacketParam->iHeaderLength = HEADER_SIZE + SEC_HEADER_SIZE;
   }
-	else{
-		psuPacketParam->iHeaderLength = HEADER_SIZE;
-	}
+  else{
+    psuPacketParam->iHeaderLength = HEADER_SIZE;
+  }
 
   //------------------PULLING OUT DATA INTO OUR OWN BLOCK-----------------------
   pStartingPoint = (pStartingPoint + psuPacketParam->iHeaderLength);
