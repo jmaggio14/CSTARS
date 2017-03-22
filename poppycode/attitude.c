@@ -47,42 +47,37 @@ int attitude_correction( struct Stars* prev_stars,
 
 	for ( i = 0; i < NUM_STAR_TRACK; i++){
 		index = i*3;
-		printf("returned! %f \n",curr_stars->xpos[index]);
-		if (curr_stars->xpos[index] == -1) continue;
-		printf("returned! %f \n",curr_stars->xpos[index]);
+		if (curr_stars->xcen[index] == -1) continue;
 		//position of first star of each group set as origin
 
 		//align first star in the two images
-		theta_1 = atan2(prev_stars->ypos[index] - prev_stars->ypos[index+1],
-				prev_stars->xpos[index] - prev_stars->xpos[index+1]);
+		theta_1 = atan2(prev_stars->ycen[index] - prev_stars->ycen[index+1],
+				prev_stars->xcen[index] - prev_stars->xcen[index+1]);
 
-		theta_2 = atan2(curr_stars->ypos[index] - curr_stars->ypos[index+1],
-				curr_stars->xpos[index] - curr_stars->xpos[index+1]);
+		theta_2 = atan2(curr_stars->ycen[index] - curr_stars->ycen[index+1],
+				curr_stars->xcen[index] - curr_stars->xcen[index+1]);
 
 		theta_temp = (theta_2 - theta_1); //+ theta_0 which is the x_0 line on the detector
-		printf("group %d, z = %f\n", i, theta_temp);
 		if (theta_temp > EXPT_ROT || theta_temp < (-1*EXPT_ROT)) continue;
 		delta_z += (float)theta_temp; //+ theta_0 which is the x_0 line on the detector
 		tracked_r += 1;
 
 		//align first star in the two images, first make center of image the origin
-		tempx = curr_stars->xpos[index] - DIMENSION/2 + 1/2;
-		tempy = curr_stars->ypos[index] - DIMENSION/2 + 1/2;
+		tempx = curr_stars->xcen[index] - DIMENSION/2 + 1/2;
+		tempy = curr_stars->ycen[index] - DIMENSION/2 + 1/2;
 		//rotation
 		newx = (float)(tempx*cos(theta_temp) +
 				tempy*sin(theta_temp) + DIMENSION/2 - 1/2);
 		newy = (float)(-tempx*sin(theta_temp) +
 				tempy*cos(theta_temp) + DIMENSION/2 - 1/2);
 
-		delta_temp = newy - prev_stars->ypos[index];
-		printf("group %d, x = %f\n", i, delta_temp);
+		delta_temp = newy - prev_stars->ycen[index];
 		if (delta_temp > EXPT_DRT || delta_temp < (-1*EXPT_DRT)) continue;
 		delta_y += delta_temp;
 		//printf("y: %f\n", delta_temp);
 		tracked_y += 1;
 
-		delta_temp = newx - prev_stars->xpos[index];
-		printf("group %d, x = %f\n", i, delta_temp);
+		delta_temp = newx - prev_stars->xcen[index];
 		if (delta_temp > EXPT_DRT || delta_temp < (-1*EXPT_DRT)) continue;
 		delta_x += delta_temp;
 		//printf("x: %f\n", delta_temp);
@@ -94,15 +89,6 @@ int attitude_correction( struct Stars* prev_stars,
 	delta_z = delta_z/(float)tracked_r;
 	delta_x = delta_x/(float)tracked_x;
 	delta_y = delta_y/(float)tracked_y;
-	printf("rotation: %f\n", delta_z);
-	printf("x: %f\n", delta_x);
-	printf("y: %f\n", delta_y);
-
-
-	//rotation is correct, drift is not
-
-	out = fopen("out.bin","wb");
-	if (out == NULL) return (0); //ERROR
 
 	if (delta_x != delta_x || delta_y != delta_y || delta_z != delta_z) {
 		delta_x = 0;
@@ -111,22 +97,28 @@ int attitude_correction( struct Stars* prev_stars,
 
 		int positions[3] = {(int)delta_x, (int)delta_y, (int)delta_z};
 
+		//UNCOMMENT BELOW FOR DEBUB
+		/*
 		fprintf(log, "pixels mas\n%f %d\n%f %d\n%f %d\n",
 				delta_x, positions[0], delta_y, positions[1], delta_z, positions[2]);
-		printf("here!!!!\n");
+		*/
+		//UNCOMMENT ABOVE FOR DEBUG
 		return(1);
 	}
 
-	int positions[3] = {(int)delta_x, (int)delta_y, (int)delta_z};
+	int positions[3] = {(int)(delta_x * MAS_PER_PIX),
+			(int)(delta_y * MAS_PER_PIX),
+			(int)(delta_z * MAS_PER_RAD)};
+	errorout[4] = positions[0];
+	errorout[5] = positions[1];
+	errorout[6] = positions[2];
 
-	fprintf(log, "pixels mas\n%f %d\n%f %d\n%f %d\n",
+	//UNCOMMENT BELOW FOR DEBUB
+	/*
+	fprintf(log, "pixels   mas\n%f %d\n%f %d\n%f %d\n",
 			delta_x, positions[0], delta_y, positions[1], delta_z, positions[2]);
-	printf("pixels mas\n%f %d\n%f %d\n%f %d\n",
-				delta_x, positions[0], delta_y, positions[1], delta_z, positions[2]);
-	//fprintf(log, "%d, %d, %d\n\n", positions[0], positions[1], positions[2]);
-	//fwrite(positions,sizeof(int),3,out);
-
-	fclose(out);
+	*/
+	//UNCOMMENT ABOVE FOR DEBUG
 
 	return (0);
 }

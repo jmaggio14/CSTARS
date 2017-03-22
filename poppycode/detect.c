@@ -37,15 +37,20 @@
  */
 struct Object_Node* detect_stars(int *img, int *th_img, int *th_pos, FILE * log ){
 	int k;
+	unsigned short numstars = 0;
 	struct tuple position;
 	struct Object *curr_star = NULL;
 	struct Object_Node *root = NULL;
 	struct Object_Node *temp;
 	struct Object_Node *current;
 
-	fprintf(log, "%4s %4s %8s %8s  %8s %8s  %8s   %8s    %8s\n",
+	//UNCOMMENT BELOW FOR DEBUB
+	/*
+	fprintf(log, "%4s %4s %8s %8s  %8s  %8s   %8s    %8s\n",
 			"xpos", "ypos", "max val", "xscent", "yscent",
-			"sharp", "shape", "xicent", "yicent");
+			"sharp", "xicent", "yicent");
+	*/
+	//UNCOMMENT ABOVE FOR DEBUG
 
 	for (k = 0; k < DIMENSION*DIMENSION; k++){
 		if (th_pos[k] == 0) break;
@@ -56,19 +61,28 @@ struct Object_Node* detect_stars(int *img, int *th_img, int *th_pos, FILE * log 
 		position.y = th_pos[k] % DIMENSION;
 		if (position.y < (SIZE + BACK)||
 				position.y > DIMENSION - (SIZE + BACK)) continue;
+
 		if (th_img[offset(DIMENSION, position.x, position.y)] != 1) continue;
+
 
 		position = flood_fill( img, th_img, position );
 		if (position.x == -1 || position.y == -1) continue;
 
+
 		curr_star = extract_star( img, position, log );
-		if (curr_star == NULL) continue;
+
+		if (curr_star == NULL){
+			continue;
+		}
+
 
 		//create a node to hold object and added to list based on brightness
 		temp = (struct Object_Node*)malloc(1*sizeof(struct Object_Node));
-		if (temp == NULL) continue; //ERROR
+		if (temp == NULL){
+			continue; //ERROR
+		}
 		temp->obj = curr_star;
-
+		numstars++;
 		if (root == NULL || curr_star->maxval > root->obj->maxval ){
 			temp->next = root;
 			root = temp;
@@ -83,7 +97,7 @@ struct Object_Node* detect_stars(int *img, int *th_img, int *th_pos, FILE * log 
 			current->next = temp;
 		}
 	}
-
+	errorout[1] = numstars;
 	return(root);
 }
 
@@ -137,20 +151,31 @@ struct Object* extract_star( int *img, struct tuple pos, FILE * log ){
 				  = (float)img[offset(DIMENSION, xind, yind)] - (backval/backarea);
 		}
 	}
-
+	//UNCOMMENT BELOW FOR DEBUB
+	/*
 	fprintf(log, "%04d %04d %f ",
 			star->position[0],
 			star->position[1],
 			star->maxval);
+	*/
+	//UNCOMMENT ABOVE FOR DEBUG
 
 	star->center[0] = com( image, 0 );
 	star->center[1] = com( image, 1 );
 
+	//UNCOMMENT BELOW FOR DEBUB
+	/*
 	fprintf(log, "%f %f ", star->center[0], star->center[1]);
+	*/
+	//UNCOMMENT ABOVE FOR DEBUG
 
 	//check if object is a star
 	if (is_star( image, star, log ) == 0 || star->center[0] == -1 || star->center[1] == -1){
+		//UNCOMMENT BELOW FOR DEBUB
+		/*
 		fprintf(log, "0 0\n");
+		 */
+		//UNCOMMENT ABOVE FOR DEBUG
 		free(star);
 		star = NULL;
 		return (star);
@@ -162,7 +187,12 @@ struct Object* extract_star( int *img, struct tuple pos, FILE * log ){
 	star->center[1] = (float)star->position[1] +
 			star->center[1] - SIZE/2;
 
+	//UNCOMMENT BELOW FOR DEBUB
+	/*
 	fprintf(log, "%f %f\n", star->center[0], star->center[1]);
+	*/
+	//UNCOMMENT ABOVE FOR DEBUG
+
 
 	return(star);
 }
@@ -201,8 +231,7 @@ struct tuple flood_fill( int *img, int *th_img, struct tuple start ){
 	c = 0;
 	enqueue( Q, max_pos );
 	while (isEmpty(Q) == 0){
-		if (c == DIMENSION*DIMENSION) {
-			printf("overflow\n");  //ERROR
+		if (c == DIMENSION*DIMENSION) {\
 			while (isEmpty(Q) == 0) {
 				dequeue(Q);
 			}
@@ -285,7 +314,7 @@ float com( float *image, int dim ){
 
 	//compute center of mass
 	for (i = 0; i < SIZE; i++){
-		num += hist[i]*i;
+		num += hist[i]*(float)i;
 		den += hist[i];
 	}
 
@@ -312,17 +341,20 @@ float com( float *image, int dim ){
  */
 int is_star( float *image, struct Object *obj, FILE * log ){
 	if (image == NULL || obj == NULL) return (1); //ERROR
-	float shapeval, sharpval;
+	float sharpval;
 
 	int is_star = 1;
 
-	shapeval = shape( image, obj );
+	//float shapeval = shape( image, obj );
 	sharpval = sharp( image, obj );
 
-	fprintf(log, "%f %f ", sharpval, shapeval);
-	//printf("%f  %f  ", sharpval, shapeval);
+	//UNCOMMENT BELOW FOR DEBUB
+	/*
+	//fprintf(log, "%f %f ", sharpval, shapeval);
+	fprintf(log, "%f ", sharpval);
+	*/
+	//UNCOMMENT ABOVE FOR DEBUG
 
-	//if (shapeval < SHAPE_LOW_BND || shapeval > SHAPE_UPP_BND || shapeval != shapeval) is_star = 0;
 	if (sharpval <= SHARP_LOW_BND ||
 			sharpval >= SHARP_UPP_BND ||
 			sharpval != sharpval) is_star = 0;
@@ -423,9 +455,9 @@ float sharp( float *image, struct Object *obj ){
 	//arrays, loops over all elements using two nested loops.
 	for (i = 0; i < SIZE; i++){
 		for (j = 0; j < SIZE; j++){
-			y = exp(-(pow((float)i - obj->center[0],2) +
+			y = (float)(exp(-(pow((float)i - obj->center[0],2) +
 					pow((float)j - obj->center[1],2))/
-					(2*HWIDTH*HWIDTH));
+					(2*HWIDTH*HWIDTH)));
 			a += y*y;
 			bc += y;
 			XTIM[0] += y*image[offset(SIZE, i, j)];

@@ -37,8 +37,10 @@ struct Object_Node {
 
 struct Stars {
 	int frame;
-	float xpos[3*NUM_STAR_TRACK];
-	float ypos[3*NUM_STAR_TRACK];
+	float xcen[3*NUM_STAR_TRACK];
+	float ycen[3*NUM_STAR_TRACK];
+	int xpos[3*NUM_STAR_TRACK];
+	int ypos[3*NUM_STAR_TRACK];
 };
 
 /*
@@ -53,6 +55,9 @@ struct Queue {
 	struct Q_Node* front;
 	struct Q_Node* rear;
 };
+
+
+extern unsigned short errorout[1024];
 
 //function declarations
 //main.c
@@ -76,16 +81,18 @@ struct Stars* get_previous_stars( int counter, int flag  );
 struct Stars* track_stars( struct Stars* prev_stars, struct Object_Node* root, FILE * log );
 struct Stars* search_third_star( struct Object_Node *first_star,
 	struct Object_Node *second_star, int side,
-	float prev_dist1, float prev_dist2, FILE * log );
+	float prev_dist1, float prev_dist2 );
 struct Stars* match_stars( struct Object_Node *first_star,
 	struct Object_Node *second_star, struct Object_Node *third_star );
 void set_stars( struct Stars* stars,  int flag );
+void save_pststamps( struct Stars* stars, int *img );
 
 //attitude.c
 int attitude_correction( struct Stars* prev_stars, struct Stars* curr_stars,  FILE * log );
 
 //util.c
 void print_list( struct Object_Node* root, FILE * log );
+void print_log();
 void clean_up( struct Object_Node* root );
 float distance( float x1, float x2, float y1, float y2 );
 int offset( int size, int x, int y );

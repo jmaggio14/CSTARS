@@ -45,8 +45,10 @@ struct Stars* choose_stars( struct Object_Node* root, int counter ){
 				current->obj->position[1] > INNER &&
 				current->obj->position[1] < DIMENSION - INNER &&
 				current->obj->maxval < 4000) {
-			stars->xpos[num_set] = current->obj->center[0];
-			stars->ypos[num_set] = current->obj->center[1];
+			stars->xcen[num_set] = current->obj->center[0];
+			stars->ycen[num_set] = current->obj->center[1];
+			stars->xpos[num_set] = current->obj->position[0];
+			stars->ypos[num_set] = current->obj->position[1];
 			num_set++;
 		}
 		current = current->next;
@@ -64,8 +66,10 @@ struct Stars* choose_stars( struct Object_Node* root, int counter ){
 							current->obj->position[1] > OUTER &&
 							current->obj->position[1] < DIMENSION - OUTER) ){
 				if (current->obj->maxval < 4000){
-					stars->xpos[num_set] = current->obj->center[0];
-					stars->ypos[num_set] = current->obj->center[1];
+					stars->xcen[num_set] = current->obj->center[0];
+					stars->ycen[num_set] = current->obj->center[1];
+					stars->xpos[num_set] = current->obj->position[0];
+					stars->ypos[num_set] = current->obj->position[1];
 				num_set++;
 			}}
 			current = current->next;
@@ -80,8 +84,10 @@ struct Stars* choose_stars( struct Object_Node* root, int counter ){
 					current->obj->position[1] <= OUTER ||
 					current->obj->position[1] >= DIMENSION - OUTER) {
 				if (current->obj->maxval < 4000){
-					stars->xpos[num_set] = current->obj->center[0];
-					stars->ypos[num_set] = current->obj->center[1];
+					stars->xcen[num_set] = current->obj->center[0];
+					stars->ycen[num_set] = current->obj->center[1];
+					stars->xpos[num_set] = current->obj->position[0];
+					stars->ypos[num_set] = current->obj->position[1];
 				num_set++;
 				}
 			}
@@ -90,6 +96,8 @@ struct Stars* choose_stars( struct Object_Node* root, int counter ){
 	}
 	if (num_set < NUM_STAR_TRACK*3) {  //ERROR
 		for ( i = num_set; i < NUM_STAR_TRACK*3; i++){
+			stars->xcen[num_set] = -1;
+			stars->ycen[num_set] = -1;
 			stars->xpos[num_set] = -1;
 			stars->ypos[num_set] = -1;
 		}
@@ -117,7 +125,6 @@ struct Stars* get_previous_stars( int counter, int flag ){
 	struct Stars *stars;
 
 	if (flag == 1){ //get main file
-		printf("opening secondary file\n");
 		file = fopen(POS_FN_SEC, "r");
 		if (file == NULL) return NULL;  //ERROR
 		if (!fscanf(file, "%d", &check)){
@@ -129,7 +136,6 @@ struct Stars* get_previous_stars( int counter, int flag ){
 			return NULL;
 		}
 	}else { //get secondary file
-		printf("opening main file\n");
 		file = fopen(POS_FN_MAIN, "r");
 		if (file == NULL) return NULL;  //ERROR
 		if (!fscanf(file, "%d", &check)){
@@ -145,16 +151,18 @@ struct Stars* get_previous_stars( int counter, int flag ){
 
 	for (k = 0; k < NUM_STAR_TRACK*3; k++){
 		//stars[k] = 0;
-		if (!fscanf(file, "%f", &stars->xpos[k])){
+		if (!fscanf(file, "%f", &stars->xcen[k])){
 			free(stars);
 			stars = NULL;
 			return (stars); //ERROR
 		}
-		if (!fscanf(file, "%f", &stars->ypos[k])){
+		stars->xpos[k] = 0;
+		if (!fscanf(file, "%f", &stars->ycen[k])){
 			free(stars);
 			stars = NULL;
 			return (stars); //ERROR
 		}
+		stars->ypos[k] = 0;
 	}
 	fclose(file);
 	return (stars);
@@ -210,29 +218,38 @@ struct Stars* track_stars( struct Stars* prev_stars,
 
 	new_stars->frame = 0;
 
+	//UNCOMMENT BELOW FOR DEBUB
+	/*
     fprintf(log, "Calculated triangular distances:\n");
+	*/
+	//UNCOMMENT ABOVE FOR DEBUG
     for (i = 0; i < NUM_STAR_TRACK; i++){
     	for (j = 0; j < 3; j++){
     		index = offset(3, i, j);
-    		if (j == 2){//*********
-    			prev_dist[index] = distance( prev_stars->xpos[index],
-    					prev_stars->xpos[index-2],
-						prev_stars->ypos[index],
-						prev_stars->ypos[index-2]);
+    		if (j == 2){
+    			prev_dist[index] = distance( prev_stars->xcen[index],
+    					prev_stars->xcen[index-2],
+						prev_stars->ycen[index],
+						prev_stars->ycen[index-2]);
+    			//UNCOMMENT BELOW FOR DEBUB
+    			/*
     			fprintf(log, "%f \n", prev_dist[index]);
-    			printf( "%f \n", prev_dist[index]);
+    			*/
+    			//UNCOMMENT ABOVE FOR DEBUG
     		}
     		else {
-    			prev_dist[index] = distance( prev_stars->xpos[index],
-    					prev_stars->xpos[index+1],
-						prev_stars->ypos[index],
-						prev_stars->ypos[index+1]);
+    			prev_dist[index] = distance( prev_stars->xcen[index],
+    					prev_stars->xcen[index+1],
+						prev_stars->ycen[index],
+						prev_stars->ycen[index+1]);
+    			//UNCOMMENT BELOW FOR DEBUB
+    			/*
     			fprintf(log, "%f ", prev_dist[index]);
-    			printf( "%f ", prev_dist[index]);
+    			*/
+    			//UNCOMMENT ABOVE FOR DEBUG
     		}
     	}
     }
-    printf("\n");
 
     for (i = 0; i < NUM_STAR_TRACK; i++){
     	index = i*3;
@@ -250,19 +267,19 @@ struct Stars* track_stars( struct Stars* prev_stars,
     			if (temp_d1 < prev_dist[index] + LPIX &&
     					temp_d1 > prev_dist[index] - LPIX ){
     				stars = search_third_star( first_star, second_star, 0,
-    						prev_dist[index+1], prev_dist[index+2], log );
+    						prev_dist[index+1], prev_dist[index+2]);
     				if (stars != NULL) starflag = 0;
     			}
     			else if (temp_d1 < prev_dist[index+1] + LPIX &&
     					temp_d1 > prev_dist[index+1] - LPIX){
     				stars = search_third_star( first_star, second_star, 1,
-    						prev_dist[index], prev_dist[index+2], log );
+    						prev_dist[index], prev_dist[index+2]);
     				if (stars != NULL) starflag = 0;
     			}
     			else if (temp_d1 < prev_dist[index+2] + LPIX &&
     					temp_d1 > prev_dist[index+2] - LPIX){
     				stars = search_third_star( first_star, second_star, 2,
-    						prev_dist[index], prev_dist[index+1], log );
+    						prev_dist[index], prev_dist[index+1]);
     				if (stars != NULL) starflag = 0;
     			}
     			second_star = second_star->next;
@@ -271,17 +288,21 @@ struct Stars* track_stars( struct Stars* prev_stars,
     	}
     	if (stars != NULL){
     		for (j = 0; j < 3; j++){
-    			new_stars->xpos[index + j] = stars->xpos[j];
-    			new_stars->ypos[index + j] = stars->ypos[j];
+    			new_stars->xcen[index + j] = stars->xcen[j];
+    			new_stars->ycen[index + j] = stars->ycen[j];
     		}
     		num_matched++;
     		free(stars);
     	}
     	else {
-    		fprintf(log, "NO MATCH"); //ERROR
+    		//UNCOMMENT BELOW FOR DEBUB
+    		/*
+    		fprintf(log, "NO MATCH");
+    		 */
+    		//UNCOMMENT ABOVE FOR DEBUG
     		for (j = 0; j < 3; j++){
-    			new_stars->xpos[index + j] = -1;
-    			new_stars->ypos[index + j] = -1;
+    			new_stars->xcen[index + j] = -1;
+    			new_stars->ycen[index + j] = -1;
     		}
     	}
     }
@@ -289,8 +310,11 @@ struct Stars* track_stars( struct Stars* prev_stars,
     	free( new_stars );
     	new_stars = NULL;
     }
-
+	//UNCOMMENT BELOW FOR DEBUB
+	/*
     fprintf(log, "\n");
+     */
+    //UNCOMMENT ABOVE FOR DEBUG
 	return (new_stars);
 
 }
@@ -314,9 +338,9 @@ struct Stars* track_stars( struct Stars* prev_stars,
  */
 struct Stars* search_third_star( struct Object_Node *first_star,
 		struct Object_Node *second_star, int side, float prev_dist_a,
-		float prev_dist_b, FILE * log ){
+		float prev_dist_b ){
 
-	if (second_star == NULL) return NULL;  //ERROR
+	if (second_star == NULL) return NULL;
 
 	struct Object_Node *third_star;
     third_star = second_star->next;
@@ -335,7 +359,6 @@ struct Stars* search_third_star( struct Object_Node *first_star,
 				second_star->obj->center[1]);
         if (temp_d3 < prev_dist_a + LPIX && temp_d3 > prev_dist_a - LPIX &&
         		temp_d2 < prev_dist_b + LPIX && temp_d2 > prev_dist_b - LPIX ){
-        	fprintf(log, "Match Found");
         	starflag = 0;
         	if ( side == 0 ){
         		stars = match_stars( second_star, first_star, third_star );
@@ -349,7 +372,6 @@ struct Stars* search_third_star( struct Object_Node *first_star,
         }
         else if (temp_d2 < prev_dist_a + LPIX && temp_d2 > prev_dist_a - LPIX &&
         		temp_d3 < prev_dist_b + LPIX && temp_d3 > prev_dist_b - LPIX ){
-        	fprintf(log, "Match Found");
             starflag = 0;
         	if ( side == 0 ){
         		stars = match_stars( first_star, second_star, third_star );
@@ -394,12 +416,18 @@ struct Stars* match_stars( struct Object_Node *first_star,
 	stars = (struct Stars*)malloc(1*sizeof(struct Stars));
 	if (stars == NULL) return NULL; //ERROR
 
-	stars->xpos[0] = first_star->obj->center[0];
-	stars->ypos[0] = first_star->obj->center[1];
-	stars->xpos[1] = second_star->obj->center[0];
-	stars->ypos[1] = second_star->obj->center[1];
-	stars->xpos[2] = third_star->obj->center[0];
-	stars->ypos[2] = third_star->obj->center[1];
+	stars->xcen[0] = first_star->obj->center[0];
+	stars->ycen[0] = first_star->obj->center[1];
+	stars->xcen[1] = second_star->obj->center[0];
+	stars->ycen[1] = second_star->obj->center[1];
+	stars->xcen[2] = third_star->obj->center[0];
+	stars->ycen[2] = third_star->obj->center[1];
+	stars->xpos[0] = first_star->obj->position[0];
+	stars->ypos[0] = first_star->obj->position[1];
+	stars->xpos[1] = second_star->obj->position[0];
+	stars->ypos[1] = second_star->obj->position[1];
+	stars->xpos[2] = third_star->obj->position[0];
+	stars->ypos[2] = third_star->obj->position[1];
 
 	return (stars);
 }
@@ -433,9 +461,22 @@ void set_stars( struct Stars* stars, int flag ){
 
 	fprintf(file, "%d\n", stars->frame);
 	for (i = 0; i < NUM_STAR_TRACK*3; i++){
-		fprintf(file, "%f %f\n", stars->xpos[i], stars->ypos[i]);
+		fprintf(file, "%f %f\n", stars->xcen[i], stars->ycen[i]);
 	}
 	fclose(file);
 
 	return;
+}
+
+void save_pststamps( struct Stars* stars, int *img ){
+	int i,j,k;
+	for (i = 0; i < NUM_STAR_TRACK*3; i++){
+		errorout[8+i] = stars->xpos[i];
+		errorout[17+i] = stars->ypos[i];
+		for (j = 0; j < SIZE; j ++){
+			for (k = 0; k < SIZE; k ++){
+				errorout[25+i*100+j*10+k] = img[offset(DIMENSION,stars->xpos[i]-SIZE+j, stars->ypos[i]-SIZE+k)];
+			}
+		}
+	}
 }

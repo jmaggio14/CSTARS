@@ -45,6 +45,24 @@ void print_list( struct Object_Node* root, FILE * log ){
  * 				the object parameters, sorted by brightness. (brightest first)
  *
  * Output:
+ * 			none
+ */
+void print_log(){
+	int i;
+	for (i = 0; i < 1024; i++){
+		printf("%d ",errorout[i]);
+	}
+	printf("\n");
+}
+
+/*
+ * Prints the max value of each star found.
+ *
+ * Input:
+ * 			root: a pointer to the root of a linked list. This list contains
+ * 				the object parameters, sorted by brightness. (brightest first)
+ *
+ * Output:
  * 			A null pointer
  */
 void clean_up( struct Object_Node* root ){

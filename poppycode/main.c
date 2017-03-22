@@ -20,8 +20,14 @@
 #include <time.h>
 
 
+unsigned short errorout[1024];
+
 
 int main(int argc, char *argv[]){
+	int f;
+	for ( f = 0; f < 1024; f++){
+		errorout[f] = 0;
+	}
 	//first check to see if program is run with binary or integer images.
 	if (argc == 3) {
 		//usage: ./startracker image# filename
@@ -47,15 +53,6 @@ int main(int argc, char *argv[]){
 	} else {
 		return (1);
 	}
-	//attitude_test();
-
-	int k = 1023;
-	int y = k % DIMENSION;
-	int x = (int)floor(k/DIMENSION);
-	printf(" %d\n", x);
-	printf(" %d\n", y);
-
-	printf(" %d\n", offset( DIMENSION, x, y));
 
 	return (0);
 }
@@ -74,16 +71,15 @@ int read_binary(int argc, char *argv[]){
 
 	img = (int *)malloc(sizeof(int*)*DIMENSION*DIMENSION);
 	th_img = (int *)malloc(sizeof(int*)*DIMENSION*DIMENSION);
-	th_pos = (int *)malloc(sizeof(int*)*DIMENSION*DIMENSION); //added
-	if (img == NULL || th_img == NULL || th_pos == NULL) { //added
-		printf("malloc error\n");//added
-		return (1); //error//added
+	th_pos = (int *)malloc(sizeof(int*)*DIMENSION*DIMENSION);
+	if (img == NULL || th_img == NULL || th_pos == NULL) {
+		return (1);
 	}
 
 	//open the file
 	file = fopen(argv[2], "rb");
 	if (file == NULL){
-		return (1); //do something more here.
+		return (1);
 	}
 
     size_t x = fread(bar, 2, DIMENSION*DIMENSION, file);
@@ -91,22 +87,21 @@ int read_binary(int argc, char *argv[]){
 
 	fclose(file);
 
-	i = 0;//added
+	i = 0;
 	//save image to 1D array that can be accessed using offset(size, x, y)
    	for (k = 0; k < DIMENSION*DIMENSION; k++){
 		img[k] = (int)bar[k];
-		if (img[k] >= THRESHOLD){//added
-			th_img[k] = 1; //check this//added
-			th_pos[i] = k;//added
-			i++;//added
+		if (img[k] >= THRESHOLD){
+			th_img[k] = 1;
+			th_pos[i] = k;
+			i++;
 		}
 		else th_img[k] = 0;
 	}
 
-   	if (i < DIMENSION*DIMENSION-1) th_pos[i+1] = -1;//added
+   	if (i < DIMENSION*DIMENSION-1) th_pos[i+1] = -1;
 
-
-
+	process_im(img, th_img, th_pos, 1, atoi(argv[1]));
 	free(img);
 	free(th_img);
 	free(th_pos);
@@ -125,14 +120,13 @@ int read_int(int alpha, int beta, char *fn[]){
 	th_img = (int *)malloc(sizeof(int*)*DIMENSION*DIMENSION);
 	th_pos = (int *)malloc(sizeof(int*)*DIMENSION*DIMENSION);
 	if (img == NULL || th_img == NULL || th_pos == NULL) {
-		printf("malloc error\n");
-		return (1); //error
+		return (1);
 	}
 
 	//open the file
 	file = fopen(fn[1], "r");
 	if (file == NULL){
-		return (1); //do something more here.
+		return (1);
 	}
 	i = 0;
 	//save image to 1D array that can be accessed using offset(size, x, y)
@@ -149,7 +143,6 @@ int read_int(int alpha, int beta, char *fn[]){
 		else th_img[k] = 0;
 	}
 
-	printf("%d\n",i);
    	if (i < DIMENSION*DIMENSION-1) th_pos[i+1] = -1;
 
 
@@ -179,7 +172,14 @@ int read_int(int alpha, int beta, char *fn[]){
  * 	they are soley for testing puposes.
  */
 int process_im(int *img, int *th_img, int *th_pos, int alpha, int beta){
-	//handle output files
+	//handle output files. Set to null for release
+	FILE* f_o = NULL;
+	FILE* f_s = NULL;
+	FILE* f_p = NULL;
+	FILE* f_a = NULL;
+
+	//UNCOMMENT BELOW FOR DEBUB
+	/*
 	char f_o_name[80], f_s_name[80], f_p_name[80], f_a_name[80];
 	//objects 	-> Parameters of objects found
 	//detect	-> Sorted max vals of all stars:
@@ -195,20 +195,28 @@ int process_im(int *img, int *th_img, int *th_pos, int alpha, int beta){
 	sprintf(f_a_name, "data/attitude_%03d_%03d.txt", alpha, beta);
 	f_a = fopen(f_a_name, "w");
 	if (f_o == NULL || f_s == NULL || f_p == NULL ||f_a == NULL) return (1);
+	*/
+	//UNCOMMENT ABOVE FOR DEBUG
 
 	int k;
 	struct Object_Node* root;
 	struct Stars* new_stars = NULL;
 	struct Stars* prev_stars = NULL;
 	int flag = 0;
-	int newflag = 1;
+	int newflag = 0;
+
+   	errorout[0] = beta;
 
 	//detect all stars in the image, store as linked list that is sorted by brightness
 	root = detect_stars( img, th_img, th_pos, f_o );
 	if (root == NULL){
-		return (1); //ERROR
+		return (1);
 	}
+	//UNCOMMENT BELOW FOR DEBUB
+	/*
 	print_list( root, f_s );
+	*/
+	//UNCOMMENT ABOVE FOR DEBUG
 
 	//determine if first file: if it is just set stars
 	if ( beta == 1){
@@ -216,42 +224,46 @@ int process_im(int *img, int *th_img, int *th_pos, int alpha, int beta){
 	} else {
 		//otherwise, load previous positions
 		prev_stars = get_previous_stars( beta, flag );
+		if (prev_stars == NULL) errorout[2] = 1;
 		//track stars and get new positions
 		new_stars = track_stars( prev_stars, root, f_p );
 
 
 		if (new_stars == NULL){ //try again
-			printf("no stars matched\n");
 			flag = 1;
 			free(prev_stars);
 			prev_stars = get_previous_stars( beta, flag );
 			//track stars and get new positions
 			new_stars = track_stars( prev_stars, root, f_p );
-			if (new_stars != NULL) flag = 0;
-			else newflag = 0;
+			if (new_stars == NULL){
+				errorout[3] = 1;
+				flag = 0;
+				newflag = 1;
+			}
+		}else{
 		}
 
 		//check if we need to choose new stars
 		//determine and output attitude corrections
-
 		if ( new_stars != NULL) {
+			//UNCOMMENT BELOW FOR DEBUB
+			/*
 			for (k = 0; k < NUM_STAR_TRACK*3; k++){
-				fprintf(f_p, "%f %f %f %f\n", prev_stars->xpos[k],
-						prev_stars->ypos[k],
-						new_stars->xpos[k],
-						new_stars->ypos[k]);
-				//fprintf(f_p, "%f\n", new_stars->xpos[k]);
+				fprintf(f_p, "%f %f %f %f\n", prev_stars->xcen[k],
+						prev_stars->ycen[k],
+						new_stars->xcen[k],
+						new_stars->ycen[k]);
 			}
-			//fprintf(f_p, "\n");
+			*/
+			//UNCOMMENT ABOVE FOR DEBUG
 			if (attitude_correction( prev_stars, new_stars, f_a ) == 1){
-				printf("here\n");
 				flag = 1;
 			}
 			for ( k = 0; k < NUM_STAR_TRACK*3; k++){
-				if (new_stars->xpos[k] < OUTER ||
-					new_stars->xpos[k] > DIMENSION - OUTER ||
-					new_stars->ypos[k] < OUTER ||
-					new_stars->ypos[k] > DIMENSION - OUTER){
+				if (new_stars->xcen[k] < OUTER ||
+					new_stars->xcen[k] > DIMENSION - OUTER ||
+					new_stars->ycen[k] < OUTER ||
+					new_stars->ycen[k] > DIMENSION - OUTER){
 					newflag = 0;
 				}
 			}
@@ -260,20 +272,26 @@ int process_im(int *img, int *th_img, int *th_pos, int alpha, int beta){
 		if (newflag == 0){
 			free(new_stars);
 			new_stars = choose_stars( root, beta );
+			errorout[7] = 1;
 		}
 
 	}
 	set_stars( new_stars, flag );
-
+	save_pststamps(new_stars, img);
+	print_log();
 	//clean up memory
 	free( prev_stars );
 	prev_stars = NULL;
 	free( new_stars );
 	new_stars = NULL;
 	clean_up( root );
+	//UNCOMMENT BELOW FOR DEBUB
+	/*
 	fclose(f_o);
 	fclose(f_s);
 	fclose(f_p);
 	fclose(f_a);
+	*/
+	//UNCOMMENT ABOVE FOR DEBUG
 	return(0);
 }

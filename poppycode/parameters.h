@@ -32,9 +32,10 @@
 #define POS_FN_SEC "star_pos_002.txt"	//File where previous star positions are stored
 #define FRAME_OFFSET 3		// Number of previous frames to store when no match found
 #define LPIX 1				//Deviation allowed on distance matching
-#define EXPT_DRT 7 		//plus/min 10 pix
-#define EXPT_ROT .5  	//plus/min pi/4
+#define EXPT_DRT 7 		//plus/min 17 pix
+#define EXPT_ROT 0.5  	//plus/min pi/6
 
-#define MAS_PER_PIX 21000 	//second conversion to milli-arc-second.
+#define MAS_PER_PIX 21093.75 	//pixel conversion to milli-arc-second.
+#define MAS_PER_RAD 206264806.247 	//radian conversion to milli-arc-second.
 
 #endif /* PARAMETERS_H_ */
